@@ -63,22 +63,48 @@ ideaBtn.addEventListener("click", () => {
   setTimeout(() => ideaBtn.classList.remove("clicked"), 250);
 });
 
-copyBtn.addEventListener("click", async () => {
-  const text = reviewText.textContent.trim();
+// Edit / Save Review Text
+let isEditing = false;
 
-  try {
-    await navigator.clipboard.writeText(text);
-    showToast("Review text copied!");
-  } catch (error) {
-    // Fallback for browsers where Clipboard API is unavailable
-    const textarea = document.createElement("textarea");
-    textarea.value = text;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand("copy");
-    textarea.remove();
-    showToast("Review text copied!");
+copyBtn.addEventListener("click", () => {
+
+  if (!isEditing) {
+
+    // Start editing
+    isEditing = true;
+
+    reviewText.contentEditable = "true";
+    reviewText.classList.add("editing");
+
+    // Focus on the review text
+    reviewText.focus();
+
+    // Change button to Save Text
+    copyBtn.innerHTML = `
+      <span class="btn-icon">✓</span>
+      Save Text
+    `;
+
+    showToast("You can edit the review now.");
+
+  } else {
+
+    // Save the edited text
+    isEditing = false;
+
+    reviewText.contentEditable = "false";
+    reviewText.classList.remove("editing");
+
+    // Change button back to Edit Text
+    copyBtn.innerHTML = `
+      <span class="btn-icon">✎</span>
+      Edit Text
+    `;
+
+    showToast("Review text saved!");
+
   }
+
 });
 
 googleBtn.addEventListener("click", () => {
