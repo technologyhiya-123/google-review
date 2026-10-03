@@ -1,0 +1,459 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #ea4335;
+  --primary-dark: #d93025;
+  --text: #111827;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --soft: #f8fafc;
+  --star: #fbbf24;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Inter", Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 10%, rgba(66, 133, 244, 0.08), transparent 28%),
+    radial-gradient(circle at 90% 85%, rgba(234, 67, 53, 0.07), transparent 30%),
+    #f5f7fb;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 28px 16px;
+}
+
+.review-card {
+  width: min(100%, 650px);
+  padding: 52px 48px 38px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: 32px;
+  text-align: center;
+  box-shadow:
+    0 30px 70px rgba(15, 23, 42, 0.09),
+    0 8px 25px rgba(15, 23, 42, 0.04);
+}
+
+/* Google logo */
+.google-logo {
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 18px;
+}
+
+.google-logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+.eyebrow {
+  margin-bottom: 12px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #94a3b8;
+}
+
+h1 {
+  font-size: clamp(34px, 6vw, 46px);
+  line-height: 1.08;
+  letter-spacing: -1.8px;
+  font-weight: 800;
+}
+
+.subtitle {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+/* Stars */
+.rating-wrap {
+  margin: 28px 0 24px;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.stars span {
+  display: inline-block;
+  color: var(--star);
+  font-size: 38px;
+  line-height: 1;
+  filter: drop-shadow(0 5px 8px rgba(251, 191, 36, 0.18));
+  transition: transform 0.25s ease;
+}
+
+.stars span:hover {
+  transform: translateY(-4px) scale(1.08);
+}
+
+.rating-text {
+  margin-top: 10px;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Review box */
+.review-box {
+  position: relative;
+  padding: 28px 26px 22px;
+  background: linear-gradient(145deg, #f8fafc, #f1f5f9);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  text-align: left;
+}
+
+.quote {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-size: 52px;
+  line-height: 1;
+  color: #cbd5e1;
+  font-family: Georgia, serif;
+}
+
+.review-box p {
+  position: relative;
+  margin: 12px 4px 22px;
+  padding-left: 20px;
+  color: #334155;
+  font-size: 17px;
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+.review-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.secondary-btn {
+  flex: 1;
+  min-height: 46px;
+  border: 1px solid #d6dee8;
+  border-radius: 13px;
+  background: #fff;
+  color: #334155;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.secondary-btn:hover {
+  transform: translateY(-2px);
+  border-color: #b9c5d3;
+  box-shadow: 0 7px 18px rgba(15, 23, 42, 0.07);
+}
+
+.idea-btn {
+  color: var(--primary);
+}
+
+.btn-icon {
+  margin-right: 6px;
+  font-size: 16px;
+}
+
+/* Google CTA */
+.google-btn {
+  width: 100%;
+  min-height: 60px;
+  margin-top: 20px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 0;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #ea4335, #d93025);
+  color: white;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 12px 25px rgba(234, 67, 53, 0.23);
+  transition: all 0.25s ease;
+}
+
+.google-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgba(234, 67, 53, 0.3);
+}
+
+.google-btn:active {
+  transform: translateY(0);
+}
+
+.google-mini {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  color: #4285f4;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.arrow {
+  margin-left: auto;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+/* Bottom text */
+.trust {
+  margin-top: 19px;
+  color: #94a3b8;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.lock {
+  margin-right: 4px;
+}
+
+.dot {
+  margin: 0 5px;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translate(-50%, 80px);
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: #111827;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.toast.show {
+  transform: translate(-50%, 0);
+  opacity: 1;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .page {
+    padding: 18px 12px;
+  }
+
+  .review-card {
+    padding: 36px 22px 28px;
+    border-radius: 27px;
+  }
+
+  .google-logo {
+    width: 55px;
+    height: 55px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .stars {
+    gap: 5px;
+  }
+
+  .stars span {
+    font-size: 34px;
+  }
+
+  .review-box {
+    padding: 25px 17px 17px;
+  }
+
+  .review-box p {
+    padding-left: 15px;
+    margin-left: 0;
+    font-size: 15px;
+  }
+
+  .review-actions {
+    gap: 8px;
+  }
+
+  .secondary-btn {
+    font-size: 12px;
+  }
+
+  .google-btn {
+    min-height: 56px;
+    font-size: 15px;
+  }
+
+  .trust {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 370px) {
+  .review-card {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  .stars span {
+    font-size: 29px;
+  }
+
+  .review-actions {
+    flex-direction: column;
+  }
+}
+
+/* Coupons */
+.coupons-section {
+  margin: -20px -20px 30px;
+  padding: 18px 20px 4px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #fff7ed, #fff1f2);
+  border: 1px solid #fed7aa;
+  text-align: left;
+}
+
+.coupons-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.coupons-heading h2 {
+  font-size: 15px;
+  font-weight: 800;
+  color: #1f2937;
+}
+
+.coupons-heading span {
+  font-size: 11px;
+  font-weight: 700;
+  color: #ea580c;
+  background: #fff;
+  border: 1px solid #fed7aa;
+  padding: 5px 9px;
+  border-radius: 999px;
+}
+
+.coupons-list {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 2px 2px 14px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+.coupon-card {
+  min-width: 230px;
+  scroll-snap-align: start;
+  padding: 15px;
+  background: #fff;
+  border: 1px dashed #fdba74;
+  border-radius: 15px;
+  box-shadow: 0 5px 14px rgba(15, 23, 42, 0.05);
+}
+
+.coupon-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.coupon-discount {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ea4335;
+}
+
+.coupon-code {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #64748b;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 5px 7px;
+  border-radius: 6px;
+}
+
+.coupon-title {
+  margin-top: 7px;
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #334155;
+}
+
+.coupon-valid {
+  margin-top: 5px;
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+.coupon-copy {
+  width: 100%;
+  margin-top: 10px;
+  min-height: 34px;
+  border: 0;
+  border-radius: 9px;
+  background: #111827;
+  color: #fff;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.coupon-copy:hover {
+  transform: translateY(-1px);
+  opacity: .92;
+}
+
+@media (max-width: 600px) {
+  .coupons-section {
+    margin: -12px -8px 26px;
+    padding: 15px 12px 2px;
+  }
+
+  .coupon-card {
+    min-width: 215px;
+  }
+}
