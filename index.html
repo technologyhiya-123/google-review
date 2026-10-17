@@ -8,69 +8,53 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- Replace with Google Cloud OAuth Web Client ID -->
+  <meta name="google-client-id" content="YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
 
   <main class="page">
     <section class="review-card">
 
-      <!-- Available Store Coupons -->
-      <div class="coupons-section">
-        <div class="coupons-heading">
-          <h2>🎁 Available Coupons</h2>
-          <span>Store Offers</span>
-        </div>
-        <div class="coupons-list" id="couponsList"></div>
-      </div>
-
-      <!-- Google Logo -->
-      <div class="google-logo" aria-label="Google">
-        <svg viewBox="0 0 48 48" role="img">
-          <path fill="#EA4335" d="M24 9.5c3.54 0 6.72 1.22 9.22 3.6l6.85-6.85C35.9 2.64 30.47.5 24 .5 14.61.5 6.48 5.88 2.51 13.75l7.98 6.2C12.4 13.9 17.69 9.5 24 9.5z"/>
-          <path fill="#4285F4" d="M46.5 24.5c0-1.63-.15-3.2-.43-4.7H24v9h12.65c-.55 2.98-2.2 5.5-4.68 7.2l7.58 5.88C43.95 37.7 46.5 31.62 46.5 24.5z"/>
-          <path fill="#FBBC05" d="M10.49 28.05A14.47 14.47 0 0 1 9.5 24c0-1.4.24-2.76.67-4.05l-7.98-6.2A23.94 23.94 0 0 0 .5 24c0 3.88.93 7.56 2.57 10.8l7.42-6.75z"/>
-          <path fill="#34A853" d="M24 47.5c6.47 0 11.9-2.14 15.85-5.82l-7.58-5.88c-2.1 1.41-4.79 2.25-8.27 2.25-6.31 0-11.6-4.4-13.51-10.45l-7.98 6.2C6.48 42.12 14.61 47.5 24 47.5z"/>
-        </svg>
+      <!-- Organization logo from the QR link; initials shown when no logo is supplied -->
+      <div class="google-logo organization-logo" id="organizationLogo" aria-label="Organization logo">
+        <img id="organizationLogoImage" alt="" hidden>
+        <span id="organizationLogoFallback" aria-hidden="true">ORG</span>
       </div>
 
       <p class="eyebrow">SHARE YOUR EXPERIENCE</p>
 
-      <h1>We value your<br>feedback!</h1>
+      <h1>Share Your Experience!</h1>
 
       <p class="subtitle">
-        Your feedback helps us improve.<br>
+        Your honest feedback helps us improve.<br>
         It only takes a few seconds.
       </p>
 
       <!-- Rating -->
       <div class="rating-wrap">
-        <div class="stars" aria-label="5 star rating">
+        <div class="stars" aria-label="Review on Google">
           <span>★</span>
           <span>★</span>
           <span>★</span>
           <span>★</span>
           <span>★</span>
         </div>
-        <p class="rating-text">Excellent experience</p>
+        <p class="rating-text">All experiences and ratings are welcome</p>
       </div>
 
-      <!-- Suggested Review -->
+      <!-- Editable prompts: visitors must describe their own genuine experience -->
       <div class="review-box">
         <span class="quote">“</span>
 
-        <p id="reviewText">
-          Incredibly professional, responsive, and polite.
-          A truly excellent experience.
-        </p>
-
-        <button class="secondary-btn" id="copyBtn" type="button">
-          <span class="btn-icon"></span>
-          Edit Text
-        </button>
+        <textarea id="reviewText" aria-label="Write your honest review" rows="5">
+          I tried [service/product]. My experience was [describe what actually happened].
+        </textarea>
 
           <button class="secondary-btn idea-btn" id="ideaBtn" type="button">
-            <span class="btn-icon"></span>
-            New Idea
+            <span class="btn-icon">↻</span>
+            Another Suggestion
           </button>
         </div>
       </div>
@@ -78,7 +62,7 @@
       <!-- Google CTA -->
       <button class="google-btn" id="googleBtn" type="button">
         <span class="google-mini">G</span>
-        <span>Copy and Review</span>
+        <span>Copy &amp; Review</span>
         <span class="arrow">→</span>
       </button>
 
@@ -89,6 +73,11 @@
         Thank you for your feedback
       </div>
 
+      <!-- Coupons remain last and independent of leaving a review -->
+      <div class="coupons-section">
+        <div class="coupons-heading"><h2>🎁 Available Coupons</h2><span>Store Offers</span></div>
+        <div class="coupons-list" id="couponsList"></div>
+      </div>
     </section>
   </main>
 
